@@ -4,12 +4,6 @@
   <div class="title-container">
     Welcome to the Movie Festival of Alireza Ezaz 9731009
   </div>
-  <input dir="auto" type="file"
-         [id]="1"
-         #fileUploader
-         placeholder="upload your comment"
-         (change)="handleFileInput($event.target.files)"
-         [multiple]="false">
 
   <mat-radio-group style="margin-bottom: 5px" color="accent" [(ngModel)]="language" (change)="onLanguageChange($event)">
     <mat-radio-button style="margin-inline-end: 16px;color: wheat" value="en">English</mat-radio-button>
@@ -30,11 +24,18 @@
         <!--        <p>{{movie.poster}}</p>-->
         <img style="width: 100%;border-radius: 10px;margin: 5px" src="{{movie.poster}}" alt="img">
 
+        <input class="file-input" dir="auto" type="file"
+               [id]="movie.id"
+               #fileUploader
+               placeholder="upload your comment"
+               (change)="handleFileInput($event.target.files)"
+               [multiple]="false">
+
         <div class="control-container">
 
           <button [matMenuTriggerFor]="comments" (click)="getMovieComments(movie.id)">See Comments</button>
 
-          <button>Add Comment</button>
+          <button (click)="uploadComment(movie.id)">Add Comment</button>
 
           <mat-menu class="comment-container" yPosition="above" #comments>
             <div *ngFor="let comment of this.movieComments">

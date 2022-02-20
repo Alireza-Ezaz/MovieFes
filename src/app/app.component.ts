@@ -53,10 +53,11 @@ export class AppComponent implements OnInit {
 
   async handleFileInput(files: FileList) {
     console.log(files);
-
     this.fileToUpload = files[0];
+  }
 
-
+  async uploadComment(movieId) {
+    console.log(movieId)
     if (this.fileToUpload) {
       this.requestService.uploadComment(this.fileToUpload).subscribe(
         (data: any) => {
