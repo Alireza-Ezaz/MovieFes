@@ -9,9 +9,10 @@
 
     <div class="movie-card" *ngFor="let movie of movies">
       <div class="movie-name">{{movie.name}}</div>
-      <div>
+      <div class="movie-details">
         <p>{{movie.director}}</p>
-        <p>{{movie.poster}}</p>
+<!--        <p>{{movie.poster}}</p>-->
+        <img style="width: 100%;border-radius: 10px;margin: 5px" src="{{movie.poster}}" alt="img">
       </div>
     </div>
   </div>
