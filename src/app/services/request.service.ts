@@ -15,4 +15,8 @@ export class RequestService {
   getMovies(): Observable<Movie[]> {
     return this.http.get<any>('/getMovies');
   }
+
+  getComments(movieId: number): Observable<any> {
+    return this.http.get<any>('/getComments/' + movieId);
+  }
 }

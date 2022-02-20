@@ -1,3 +1,5 @@
-<div>
-  hi
+<div *ngFor="let movie of movies">
+  <h2>{{movie.name}}</h2>
+  <p>{{movie.director}}</p>
+  <p>{{movie.poster}}</p>
 </div>
