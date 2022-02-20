@@ -5,17 +5,24 @@
     Welcome to the Movie Festival of Alireza Ezaz 9731009
   </div>
 
+  <mat-radio-group style="margin-bottom: 5px" color="accent" [(ngModel)]="language" (change)="onLanguageChange($event)">
+    <mat-radio-button style="margin-inline-end: 16px;color: wheat" value="en">English</mat-radio-button>
+    <mat-radio-button style="margin-inline-end: 16px;color: wheat"  value="ar">Arabic</mat-radio-button>
+    <mat-radio-button style="margin-inline-end: 16px;color: wheat"  value="de">German</mat-radio-button>
+    <mat-radio-button style="margin-inline-end: 16px;color: wheat"  value="fa">Farsi</mat-radio-button>
+  </mat-radio-group>
+
   <div class="movies-container">
 
     <div class="movie-card" *ngFor="let movie of movies">
       <div class="movie-name">{{movie.name}}</div>
       <div class="movie-details">
         <p>{{movie.director}}</p>
-<!--        <p>{{movie.poster}}</p>-->
+        <!--        <p>{{movie.poster}}</p>-->
         <img style="width: 100%;border-radius: 10px;margin: 5px" src="{{movie.poster}}" alt="img">
 
         <div class="control-container">
-          <button>See Comments</button>
+          <button (click)="getMovieComments(movie.id)">See Comments</button>
           <button>Add Comment</button>
         </div>
       </div>

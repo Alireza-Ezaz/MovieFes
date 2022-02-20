@@ -9,7 +9,9 @@ import {Movie} from './models/Movie';
 })
 export class AppComponent implements OnInit {
   title = 'MovieFes';
+  language = 'en';
   movies: Movie[];
+  movieComments: string[];
 
   constructor(private requestService: RequestService) {
   }
@@ -27,6 +29,22 @@ export class AppComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  getMovieComments(movieId) {
+    this.requestService.getComments(movieId, this.language).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.movieComments = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  onLanguageChange(event) {
+    this.language = event.value;
   }
 
 }

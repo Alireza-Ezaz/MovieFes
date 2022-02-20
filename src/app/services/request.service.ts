@@ -16,7 +16,7 @@ export class RequestService {
     return this.http.get<any>('/getMovies');
   }
 
-  getComments(movieId: number): Observable<any> {
-    return this.http.get<any>('/getComments/' + movieId);
+  getComments(movieId: number, language: string): Observable<any> {
+    return this.http.get<any>('/getComments/' + movieId + '?language=' + language);
   }
 }

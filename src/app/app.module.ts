@@ -6,6 +6,8 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MovieFesInterceptor} from "./utilities/MovieFesInterceptor";
 import { RouterModule } from '@angular/router';
+import {MatRadioModule} from "@angular/material/radio";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -26,6 +28,8 @@ import { RouterModule } from '@angular/router';
         onSameUrlNavigation: 'reload',
       }
     ),
+    MatRadioModule,
+    FormsModule,
 
   ],
   providers: [
