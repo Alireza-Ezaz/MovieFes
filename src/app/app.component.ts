@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   language = 'en';
   movies: Movie[];
   movieComments: Comment[];
+  fileToUpload: File = null;
 
   constructor(private requestService: RequestService) {
   }
@@ -47,6 +48,25 @@ export class AppComponent implements OnInit {
 
   onLanguageChange(event) {
     this.language = event.value;
+  }
+
+
+  async handleFileInput(files: FileList) {
+    console.log(files);
+
+    this.fileToUpload = files[0];
+
+
+    if (this.fileToUpload) {
+      this.requestService.uploadComment(this.fileToUpload).subscribe(
+        (data: any) => {
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
 }
