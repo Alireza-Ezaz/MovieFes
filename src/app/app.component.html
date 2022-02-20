@@ -8,9 +8,11 @@
   <div class="movies-container">
 
     <div class="movie-card" *ngFor="let movie of movies">
-      <div>{{movie.name}}</div>
-      <p>{{movie.director}}</p>
-      <p>{{movie.poster}}</p>
+      <div class="movie-name">{{movie.name}}</div>
+      <div>
+        <p>{{movie.director}}</p>
+        <p>{{movie.poster}}</p>
+      </div>
     </div>
   </div>
 </div>
