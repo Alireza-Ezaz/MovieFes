@@ -8,6 +8,7 @@ import {MovieFesInterceptor} from "./utilities/MovieFesInterceptor";
 import { RouterModule } from '@angular/router';
 import {MatRadioModule} from "@angular/material/radio";
 import {FormsModule} from "@angular/forms";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 
@@ -30,6 +31,7 @@ import {FormsModule} from "@angular/forms";
     ),
     MatRadioModule,
     FormsModule,
+    MatMenuModule,
 
   ],
   providers: [

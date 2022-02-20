@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RequestService} from './services/request.service';
 import {Movie} from './models/Movie';
+import {Comment} from './models/Comment';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'MovieFes';
   language = 'en';
   movies: Movie[];
-  movieComments: string[];
+  movieComments: Comment[];
 
   constructor(private requestService: RequestService) {
   }
@@ -32,10 +33,11 @@ export class AppComponent implements OnInit {
   }
 
   getMovieComments(movieId) {
+    this.movieComments = [];
     this.requestService.getComments(movieId, this.language).subscribe(
       (data: any) => {
-        console.log(data);
-        this.movieComments = data;
+        this.movieComments = data.comments;
+        console.log(this.movieComments);
       },
       error => {
         console.log(error);
