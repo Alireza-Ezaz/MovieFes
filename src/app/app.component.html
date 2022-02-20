@@ -1,6 +1,17 @@
-<div *ngFor="let movie of movies">
-  <h2>{{movie.name}}</h2>
-  <p>{{movie.director}}</p>
-  <p>{{movie.poster}}</p>
+<div class="main-container">
+
+
+  <div class="title-container">
+    Welcome to the Movie Festival of Alireza Ezaz 9731009
+  </div>
+
+  <div class="movies-container">
+
+    <div class="movie-card" *ngFor="let movie of movies">
+      <div>{{movie.name}}</div>
+      <p>{{movie.director}}</p>
+      <p>{{movie.poster}}</p>
+    </div>
+  </div>
 </div>
 
