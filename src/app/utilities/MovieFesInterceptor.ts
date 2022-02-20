@@ -7,7 +7,7 @@ import {environment} from '../../environments/environment';
 @Injectable()
 export class MovieFesInterceptor implements HttpInterceptor {
 
-  DomainName = environment.production ? 'https://x.com' : 'https://localhost:5000';
+  DomainName = environment.production ? 'https://x.com' : 'http://127.0.0.1:5000';
   constructor(private router: Router) {
 
   }

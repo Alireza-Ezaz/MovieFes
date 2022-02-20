@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
 
   getMovies() {
     this.requestService.getMovies().subscribe(
-      data => {
-        console.log(data);
+      (data: Movie[]) => {
+        this.movies = data;
       },
       error => {
         console.log(error);
