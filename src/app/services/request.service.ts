@@ -21,13 +21,17 @@ export class RequestService {
     return this.http.get<any>('/getComments/' + movieId + '?language=' + language);
   }
 
-  uploadComment(fileToUpload: File): Observable<HttpEvent<any>> {
+  uploadComment(fileToUpload: File, movieId): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
     console.log('formData');
     console.log(formData);
     const headers = new HttpHeaders().append('Content-Disposition', 'multipart/form-data');
     return this.http
-      .post <HttpEvent<any>>('/uploadComment', formData, {headers: headers, reportProgress: true, observe: 'events'});
+      .post <HttpEvent<any>>('/uploadComment?movieId=' + movieId, formData, {
+        headers: headers,
+        reportProgress: true,
+        observe: 'events'
+      });
   }
 }

@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
   async uploadComment(movieId) {
     console.log(movieId)
     if (this.fileToUpload) {
-      this.requestService.uploadComment(this.fileToUpload).subscribe(
+      this.requestService.uploadComment(this.fileToUpload,movieId).subscribe(
         (data: any) => {
           console.log(data);
         },
